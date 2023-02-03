@@ -10,10 +10,11 @@ export const StyledQualities = Styled.div`
 export const Heading = Styled.span`
     font-size: 16px;
     font-weight: 700;
+    width:20%;
 `;
 
 export const Levels = Styled.span`
-    margin-left: 50px;
+    width:80%;
 `;
 
 export const Level = Styled.span`
@@ -27,13 +28,6 @@ export const Level = Styled.span`
     font-size: 10px;
 `;
 
-export const HiddenLevel = Styled.span`
-    content: "•";
-    display: inline-block;
-    width: 50px;
-    height: 10px;
-    background-color #E0E0E0;
-    border-radius: 10px;
-    margin-left: 10px;
-    font-size: 10px;
+export const HiddenLevel = Styled(Level)`
+  background-color: #E0E0E0;
 `;

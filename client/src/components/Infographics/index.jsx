@@ -14,7 +14,7 @@ const index = ({ heading, level }) => {
           .fill(0)
           .map((e) => (
             <Stl.Level></Stl.Level>
-          ))}{" "}
+          ))}
         {Array(hidden)
           .fill(0)
           .map((e) => (
