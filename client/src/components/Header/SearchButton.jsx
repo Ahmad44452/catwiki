@@ -18,13 +18,15 @@ const SearchButton = () => {
       <input placeholder="Enter your breed" />
 
       <FoundItemsBox>
-        <FoundItem>American Bobtail</FoundItem>
-        <FoundItem>American Curl</FoundItem>
-        <FoundItem>American Shorthair</FoundItem>
-        <FoundItem>American Wirehair</FoundItem>
-        <FoundItem>American Bobtail</FoundItem>
-        <FoundItem>American Bobtail</FoundItem>
-        <FoundItem>American Bobtail</FoundItem>
+        <ul>
+          <FoundItem>American Bobtail</FoundItem>
+          <FoundItem>American Curl</FoundItem>
+          <FoundItem>American Shorthair</FoundItem>
+          <FoundItem>American Wirehair</FoundItem>
+          <FoundItem>American Bobtail</FoundItem>
+          <FoundItem>American Bobtail</FoundItem>
+          <FoundItem>American Bobtail</FoundItem>
+        </ul>
       </FoundItemsBox>
     </SearchBar>
   );
