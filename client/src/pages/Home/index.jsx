@@ -1,10 +1,11 @@
 import Header from "./Header";
+import ReasonSection from "./ReasonSection";
 
 const Home = () => {
   return (
     <>
       <Header />
-      <h1>This is homepage</h1>
+      <ReasonSection />
     </>
   );
 };

@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 export const Header = styled.div`
   overflow: hidden;
-  border-radius: 100px;
+  border-radius: 80px;
 `;
 
 export const Top = styled.div`
@@ -26,40 +25,9 @@ export const TopDescription = styled.p`
   max-width: 45rem;
 `;
 
-export const TopSearch = styled.div`
-  position: relative;
-  max-width: 30rem;
-  line-height: 1;
-
-  svg {
-    position: absolute;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    fill: #000;
-    width: 2rem;
-    height: 2rem;
-  }
-
-  input {
-    background: #fff;
-    width: 100%;
-    padding: 1.5rem 4.2rem 1.5rem 2rem;
-    border: none;
-    outline: none;
-    border-radius: 999px;
-    font-size: 2rem;
-
-    &::placeholder {
-      font-size: 2rem;
-      color: #291507;
-    }
-  }
-`;
-
 export const Bottom = styled.div`
   background-color: #e3e1dc;
-  padding: 6rem 10rem 12rem 10rem;
+  padding: 10rem 10rem 12rem 10rem;
 `;
 
 export const BottomHeading = styled.h3`
@@ -84,7 +52,7 @@ export const BottomHeadlineContainer = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-top: 5rem;
+  margin: 5rem 0;
 `;
 
 export const BottomHeadline = styled.h1`
@@ -94,27 +62,8 @@ export const BottomHeadline = styled.h1`
   flex-basis: 50%;
 `;
 
-export const BottomHeadlineLink = styled(Link)`
-  font-weight: 700;
-  font-size: 2rem;
-  color: rgba(41, 21, 7, 0.6);
-  text-decoration: none;
-
-  span {
-    transition: all 0.3s;
-    display: inline-block;
-  }
-
-  &:hover span {
-    transform: translateX(8px);
-  }
-`;
-
 export const BottomCatCardContainer = styled.div`
-  margin-top: 4rem;
-  display: flex;
-  justify-content: space-between;
-  flex-grow: 1;
-  column-gap: 10px;
-  /* flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 8rem;
 `;
