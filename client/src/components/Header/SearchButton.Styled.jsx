@@ -30,21 +30,46 @@ export const SearchBar = styled.div`
       font-size: 2rem;
       color: #291507;
     }
+
+    &:focus + div {
+      display: block;
+    }
   }
 `;
 
-export const FoundItemsBox = styled.ul`
+export const FoundItemsBox = styled.div`
+  display: none;
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
   width: 100%;
   background-color: #fff;
   border-radius: 20px;
-  list-style-type: none;
-  overflow-y: scroll;
-  max-height: 22rem;
   padding: 1rem;
   z-index: 100;
+
+  ul {
+    overflow-y: scroll;
+    list-style-type: none;
+    max-height: 22rem;
+
+    scrollbar-color: #bdbdbd #f2f2f2;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+      &-track {
+        background-color: #f2f2f2;
+        border-radius: 10px;
+      }
+      &-thumb {
+        background-color: #bdbdbd;
+        background-image: none;
+        border-radius: 10px;
+      }
+    }
+  }
 `;
 
 export const FoundItem = styled.li`
