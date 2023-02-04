@@ -22,9 +22,6 @@ const Header = () => {
             66+ Breeds For you to discover
           </Stl.BottomHeadline>
           <AsciiArrowButton to="/">See More</AsciiArrowButton>
-          {/* <Stl.BottomHeadlineLink to={"/"}>
-            See More 
-          </Stl.BottomHeadlineLink> */}
         </Stl.BottomHeadlineContainer>
 
         <Stl.BottomCatCardContainer>

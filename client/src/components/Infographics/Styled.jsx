@@ -1,24 +1,22 @@
 import Styled from "styled-components";
-import { device } from "../../utils/ScreenSizes";
 
 export const StyledQualities = Styled.div`
     margin-top: 2.5rem;   
     font-size: 16px;
     font-weight: 500;
-
+    display: flex;
 `;
 
 export const Heading = Styled.span`
     font-size: 16px;
     font-weight: 700;
-    width:20%;
-    @media ${device.mobileL} {    
-        font-size: 14px;
-    }
+    width: 30%;
+    display: inline-block;
 `;
 
 export const Levels = Styled.span`
-    width:80%;
+    width: 70%;
+    display: inline-block;
 `;
 
 export const Level = Styled.span`
@@ -29,9 +27,9 @@ export const Level = Styled.span`
     background-color: #544439;
     border-radius: 10px;
     margin-left: 10px;
-    font-size: 10px;    
-    @media ${device.mobileL} {
-        width: 40px;
+    font-size: 10px; 
+    @media only screen and (max-width: 425px) {
+        width: 30px;
     }
 `;
 
