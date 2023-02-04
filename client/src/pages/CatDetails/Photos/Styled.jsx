@@ -14,6 +14,7 @@ export const OtherImagesGrid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
   margin-top: 2rem;
+  justify-items: center;
 `;
 
 export const Image = styled.img`
