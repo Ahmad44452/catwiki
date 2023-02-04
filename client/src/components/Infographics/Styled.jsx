@@ -4,17 +4,19 @@ export const StyledQualities = Styled.div`
     margin-top: 2.5rem;   
     font-size: 16px;
     font-weight: 500;
-
+    display: flex;
 `;
 
 export const Heading = Styled.span`
     font-size: 16px;
     font-weight: 700;
-    width:20%;
+    width: 30%;
+    display: inline-block;
 `;
 
 export const Levels = Styled.span`
-    width:80%;
+    width: 70%;
+    display: inline-block;
 `;
 
 export const Level = Styled.span`

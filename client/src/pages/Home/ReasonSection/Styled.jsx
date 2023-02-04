@@ -4,13 +4,29 @@ export const Section = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20rem 15rem;
+  padding: 15rem;
+
+  @media only screen and (max-width: 1440px) {
+    padding: 15rem 5rem;
+  }
+
+  @media only screen and (max-width: 1100px) {
+    flex-direction: column;
+    padding: 3rem 0;
+    align-items: center;
+  }
 `;
 
 export const SectionText = styled.div`
   width: 50%;
   padding: 0 3rem 0 1rem;
   margin-right: 2rem;
+
+  @media only screen and (max-width: 1100px) {
+    width: auto;
+    margin: 0;
+    padding: 2rem 0 4rem 0;
+  }
 `;
 
 export const SectionHeading = styled.h2`
@@ -36,6 +52,10 @@ export const SectionDescription = styled.p`
   font-size: 2rem;
   color: #291507;
   margin: 8rem 0;
+
+  @media only screen and (max-width: 1100px) {
+    margin: 4rem 0;
+  }
 `;
 
 export const SectionImages = styled.div`
@@ -64,5 +84,11 @@ export const SectionImages = styled.div`
 
   img:nth-child(3) {
     grid-area: img3;
+  }
+
+  @media only screen and (max-width: 1100px) {
+    width: auto;
+    max-width: 500px;
+    margin: 0;
   }
 `;
