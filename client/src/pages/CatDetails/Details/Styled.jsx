@@ -1,17 +1,31 @@
 import styled from "styled-components";
+import { device } from "../../../utils/ScreenSizes";
 
 export const MainContainer = styled.main`
   display: flex;
   justify-content: center;
   padding: 4rem 8rem;
+
+  @media ${device.mobileL} {
+    flex-direction: column;
+    padding: 5px;
+    gap: 1rem;
+  }
 `;
 
 export const MainImageContainer = styled.div`
   width: 40%;
+  @media ${device.mobileL} {
+    width: 100%;
+  }
 `;
 
 export const MainDetailsContainer = styled.div`
   width: 60%;
+  @media ${device.mobileL} {
+    width: 100%;
+    padding: 5px;
+  }
 `;
 
 export const MainImage = styled.img`

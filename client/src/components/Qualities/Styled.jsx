@@ -1,4 +1,5 @@
 import Styled from "styled-components";
+import { device } from "../../utils/ScreenSizes";
 
 export const StyledQualities = Styled.div`
     margin-top: 2.5rem;   
@@ -9,4 +10,7 @@ export const StyledQualities = Styled.div`
 export const Heading = Styled.span`
     font-size: 16px;
     font-weight: 700;
+    @media ${device.mobileL} {    
+        font-size: 14px;
+    }
 `;

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { device } from "./utils/ScreenSizes";
 
 const GlobalStyles = createGlobalStyle`
   
@@ -15,6 +16,13 @@ const GlobalStyles = createGlobalStyle`
   body {
     padding: 0 7rem;
     font-family: 'Montserrat', sans-serif;
+
+    @media ${device.mobileL} {
+      padding: 0rem;
+    }
+    @media ${device.tablet} {
+      padding: 0rem;
+    }
   }
 `;
 
