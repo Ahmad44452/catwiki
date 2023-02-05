@@ -25,8 +25,8 @@ app.use(express.json());
 
 
 ////////// API ROUTES
-// const userApi = require("./routes/api/userApi");
-// app.use("/api/user", userApi);
+const breedApi = require("./routes/api/breedApi");
+app.use("/api/breed", breedApi);
 ///////////////////////////////////////
 
 
