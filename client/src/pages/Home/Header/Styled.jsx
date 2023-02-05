@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Header = styled.div`
   overflow: hidden;
   border-radius: 80px;
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 834px) {
     border-radius: 50px;
   }
 `;
@@ -20,7 +20,7 @@ export const Top = styled.div`
     padding: 10rem 5rem;
   }
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 834px) {
     padding: 2rem 3rem;
   }
 `;
@@ -54,7 +54,7 @@ export const Bottom = styled.div`
     padding: 5rem 5rem 8rem 5rem;
   }
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 834px) {
     padding: 5rem 3rem 7rem 3rem;
   }
 `;
@@ -87,7 +87,7 @@ export const BottomHeadlineContainer = styled.div`
   justify-content: space-between;
   margin: 5rem 0;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 834px) {
     margin: 1.5rem 0 2.5rem 0;
   }
 
@@ -104,7 +104,7 @@ export const BottomHeadline = styled.h1`
   color: #291507;
   flex-basis: 50%;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 834px) {
     flex-basis: 70%;
   }
 

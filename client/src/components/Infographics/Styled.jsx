@@ -27,7 +27,10 @@ export const Level = Styled.span`
     background-color: #544439;
     border-radius: 10px;
     margin-left: 10px;
-    font-size: 10px;
+    font-size: 10px; 
+    @media only screen and (max-width: 425px) {
+        width: 30px;
+    }
 `;
 
 export const HiddenLevel = Styled(Level)`
