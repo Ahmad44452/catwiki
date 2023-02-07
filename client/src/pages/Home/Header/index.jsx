@@ -5,7 +5,30 @@ import SearchButton from "../../../components/Header/SearchButton";
 
 import AsciiArrowButton from "../../../components/RouterLinks/AsciiArrowButton";
 
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const Header = () => {
+  const [topSearched, setTopSearched] = useState(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    if (topSearched === null) {
+      axios
+        .get(`${import.meta.env.VITE_API_URI}/api/breed/topsearched`, {
+          signal: controller.signal,
+        })
+        .then((res) => {
+          setTopSearched(res.data);
+        });
+    }
+
+    return () => {
+      controller.abort();
+    };
+  }, []);
+
   return (
     <Stl.Header>
       <Stl.Top>
@@ -25,10 +48,16 @@ const Header = () => {
         </Stl.BottomHeadlineContainer>
 
         <Stl.BottomCatCardContainer>
-          <CatCard />
-          <CatCard />
-          <CatCard />
-          <CatCard />
+          {topSearched === null ? (
+            <h2>Loading...</h2>
+          ) : (
+            <>
+              <CatCard breed={topSearched[0]} />
+              <CatCard breed={topSearched[1]} />
+              <CatCard breed={topSearched[2]} />
+              <CatCard breed={topSearched[3]} />
+            </>
+          )}
         </Stl.BottomCatCardContainer>
       </Stl.Bottom>
     </Stl.Header>

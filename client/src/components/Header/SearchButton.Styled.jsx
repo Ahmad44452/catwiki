@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const SearchBar = styled.div`
   position: relative;
@@ -43,9 +44,9 @@ export const SearchBar = styled.div`
       color: #291507;
     }
 
-    &:focus + div {
+    /* &:focus + div {
       display: block;
-    }
+    } */
   }
 
   & > div button {
@@ -102,7 +103,8 @@ export const SearchBar = styled.div`
 `;
 
 export const FoundItemsBox = styled.div`
-  display: none;
+  display: ${({ isBoxVisiblePc }) => (isBoxVisiblePc ? "block" : "none")};
+  // display: block;
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
@@ -147,13 +149,16 @@ export const FoundItemsBox = styled.div`
   }
 `;
 
-export const FoundItem = styled.li`
+export const FoundItem = styled(Link)`
   color: #000;
   font-size: 1.8rem;
   font-weight: 500;
   padding: 1.5rem 1rem;
   cursor: pointer;
   border-radius: 10px;
+  display: block;
+  text-decoration: none;
+
   &:hover {
     background: #9797971a;
   }

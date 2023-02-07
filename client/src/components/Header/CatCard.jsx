@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
-const Container = styled.div``;
+const Container = styled.div`
+  /* max-height: 220px; */
+  /* max-width: 220px; */
+`;
 
 const CatImage = styled.img`
   width: 100%;
+  height: 100%;
+  max-height: 220px;
+  max-width: 220px;
+  object-fit: cover;
+  border-radius: 5px;
 `;
 
 const CatBreed = styled.p`
@@ -13,11 +21,11 @@ const CatBreed = styled.p`
   margin-top: 1.5rem;
 `;
 
-const CatCard = () => {
+const CatCard = ({ breed }) => {
   return (
     <Container>
-      <CatImage src="/images/image 2.png" />
-      <CatBreed>Breed Name</CatBreed>
+      <CatImage src={breed.referenceImage} />
+      <CatBreed>{breed.name}</CatBreed>
     </Container>
   );
 };
