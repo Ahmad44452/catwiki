@@ -8,11 +8,11 @@ const { BreedModel } = require('../../models/breedModel');
 router.route('/updatebreeds').get(async (req, res) => {
   try {
     // Get all breeds data from API
-    const breedDataApi = await fetch('https://api.thecatapi.com/v1/breeds').then(res => res.json());
+    const breedDataApi = await fetch('https://api.thecatapi.com/v1/breeds', { method: 'GET' }).then(res => res.json());
     const breedDataWithImageURL = [];
     for (let breed of breedDataApi) {
       if (breed.reference_image_id) {
-        const referenceImageData = await fetch(`https://api.thecatapi.com/v1/images/${breed.reference_image_id}`).then(res => res.json());
+        const referenceImageData = await fetch(`https://api.thecatapi.com/v1/images/${breed.reference_image_id}`, { method: 'GET' }).then(res => res.json());
         breed.referenceImage = referenceImageData.url;
       }
 
@@ -105,12 +105,12 @@ router.route('/details/:breedId').get(async (req, res) => {
       await breed.save();
     }
 
-    const breedDataApi = await fetch(`https://api.thecatapi.com/v1/breeds/${breedId}`).then(res => res.json());
+    const breedDataApi = await fetch(`https://api.thecatapi.com/v1/breeds/${breedId}`, { method: 'GET' }).then(res => res.json());
     const resBreedData = breedDetailsProps(breedDataApi);
 
     resBreedData.referenceImage = breed.referenceImage;
 
-    const imagesApiFetch = await fetch(`https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=${breedDataApi.id}`).then(res => res.json());
+    const imagesApiFetch = await fetch(`https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=${breedDataApi.id}`, { method: 'GET' }).then(res => res.json());
 
     resBreedData.images = imagesApiFetch.map(item => item.url);
 
