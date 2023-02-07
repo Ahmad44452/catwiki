@@ -51,11 +51,11 @@ export const Bottom = styled.div`
   padding: 10rem 10rem 12rem 10rem;
 
   @media only screen and (max-width: 1024px) {
-    padding: 5rem 5rem 8rem 5rem;
+    padding: 5rem 5rem 12rem 5rem;
   }
 
   @media only screen and (max-width: 834px) {
-    padding: 5rem 3rem 7rem 3rem;
+    padding: 5rem 3rem 10rem 3rem;
   }
 `;
 
@@ -117,5 +117,12 @@ export const BottomHeadline = styled.h1`
 export const BottomCatCardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 8rem;
+  grid-template-rows: 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 7rem;
+  justify-items: center;
+
+  @media only screen and (max-width: 960px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;

@@ -12,13 +12,13 @@ const index = ({ heading, level }) => {
       <Stl.Levels>
         {Array(level)
           .fill(0)
-          .map((e) => (
-            <Stl.Level></Stl.Level>
+          .map((e, i) => (
+            <Stl.Level key={i}></Stl.Level>
           ))}
         {Array(hidden)
           .fill(0)
-          .map((e) => (
-            <Stl.HiddenLevel></Stl.HiddenLevel>
+          .map((e, i) => (
+            <Stl.HiddenLevel key={i}></Stl.HiddenLevel>
           ))}
       </Stl.Levels>
     </Stl.StyledQualities>
