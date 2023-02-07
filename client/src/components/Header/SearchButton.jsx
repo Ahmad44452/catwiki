@@ -2,9 +2,37 @@ import { useState } from "react";
 import { SearchBar, FoundItemsBox, FoundItem } from "./SearchButton.Styled";
 import { AiOutlineClose } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
+import axios from "axios";
 
 const SearchButton = () => {
   const [isInputVisible, setIsInputVisible] = useState(false);
+  const [foundItems, setFoundItems] = useState([]);
+  const [isLoading, setLoading] = useState(false);
+  const [isBoxVisiblePc, setBoxVisiblePc] = useState(false);
+
+  let controller = null;
+
+  const performSearch = (searchQuery) => {
+    if (controller !== null) controller.abort();
+    setBoxVisiblePc(true);
+    if (searchQuery === "") {
+      setLoading(false);
+      setBoxVisiblePc(false);
+      setFoundItems([]);
+      return null;
+    }
+
+    controller = new AbortController();
+    setLoading(true);
+    axios
+      .get(`${import.meta.env.VITE_API_URI}/api/breed/search/${searchQuery}`, {
+        signal: controller.signal,
+      })
+      .then((res) => {
+        setLoading(false);
+        setFoundItems(res.data);
+      });
+  };
 
   return (
     <>
@@ -14,17 +42,7 @@ const SearchButton = () => {
           value="Search"
           onClick={() => setIsInputVisible(true)}
         />
-        {/* <svg
-          stroke="currentColor"
-          fill="currentColor"
-          strokeWidth="0"
-          viewBox="0 0 24 24"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path>
-        </svg> */}
+
         <BiSearch />
 
         <div>
@@ -32,17 +50,25 @@ const SearchButton = () => {
             <AiOutlineClose />
           </button>
 
-          <input type="text" placeholder="Enter your breed" />
+          <input
+            type="text"
+            placeholder="Enter your breed"
+            onChange={(e) => performSearch(e.target.value)}
+          />
 
-          <FoundItemsBox>
+          <FoundItemsBox isBoxVisiblePc={isBoxVisiblePc}>
             <ul>
-              <FoundItem>American Bobtail</FoundItem>
-              <FoundItem>American Curl</FoundItem>
-              <FoundItem>American Shorthair</FoundItem>
-              <FoundItem>American Wirehair</FoundItem>
-              <FoundItem>American Bobtail</FoundItem>
-              <FoundItem>American Bobtail</FoundItem>
-              <FoundItem>American Bobtail</FoundItem>
+              {isLoading ? (
+                <h3>Loading...</h3>
+              ) : foundItems.length === 0 ? (
+                <h3>Nothing Found</h3>
+              ) : (
+                foundItems.map((item) => (
+                  <FoundItem key={item._id} to={`/details/${item.breedId}`}>
+                    {item.name}
+                  </FoundItem>
+                ))
+              )}
             </ul>
           </FoundItemsBox>
         </div>
