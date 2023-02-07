@@ -3,36 +3,42 @@ import Qualities from "../../../components/Qualities";
 import Infographics from "../../../components/Infographics";
 
 import * as Stl from "./Styled";
-import BengalMain from "../../../assets/DummyPhotos/BengalMain.png";
 
-const Details = () => {
+const Details = ({ breedInfo }) => {
   return (
     <Stl.MainContainer>
       <Stl.MainImageContainer>
-        <Stl.MainImage src={BengalMain} alt="cat" />
+        <Stl.MainImage src={breedInfo.referenceImage} alt="cat" />
       </Stl.MainImageContainer>
       <Stl.MainDetailsContainer>
-        <Stl.Name>Bengal</Stl.Name>
-        <Stl.Description>
-          Bengals are a lot of fun to live with, but they're definitely not the
-          cat for everyone, or for first-time cat owners. Extremely intelligent,
-          curious and active, they demand a lot of interaction and woe betide
-          the owner who doesn't provide it.
-        </Stl.Description>
+        <Stl.Name>{breedInfo.name}</Stl.Name>
+        <Stl.Description>{breedInfo.description}</Stl.Description>
+        <Qualities heading={"Temperament"} qualities={breedInfo.temperament} />
+        <Qualities heading={"Origin"} qualities={breedInfo.origin} />
         <Qualities
-          heading={"Temperament"}
-          qualities={"Alert, Agile, Energetic, Demanding, Intelligent"}
+          heading={"Life Span"}
+          qualities={`${breedInfo.lifeSpan} years`}
         />
-        <Qualities heading={"Origin"} qualities={"United States"} />
-        <Qualities heading={"Life Span"} qualities={"12 - 15 years"} />
-        <Infographics heading={"Adaptability"} level={5} />
-        <Infographics heading={"Affection level"} level={5} />
-        <Infographics heading={"Child Friendly"} level={4} />
-        <Infographics heading={"Grooming"} level={1} />
-        <Infographics heading={"Intelligence"} level={5} />
-        <Infographics heading={"Health issues"} level={3} />
-        <Infographics heading={"Social needs"} level={5} />
-        <Infographics heading={"Stranger friendly"} level={3} />
+        <Infographics heading={"Adaptability"} level={breedInfo.adaptability} />
+        <Infographics
+          heading={"Affection level"}
+          level={breedInfo.affectionLevel}
+        />
+        <Infographics
+          heading={"Child Friendly"}
+          level={breedInfo.childFriendly}
+        />
+        <Infographics heading={"Grooming"} level={breedInfo.grooming} />
+        <Infographics heading={"Intelligence"} level={breedInfo.intelligence} />
+        <Infographics
+          heading={"Health issues"}
+          level={breedInfo.healthIssues}
+        />
+        <Infographics heading={"Social needs"} level={breedInfo.socialNeeds} />
+        <Infographics
+          heading={"Stranger friendly"}
+          level={breedInfo.strangerFriendly}
+        />
       </Stl.MainDetailsContainer>
     </Stl.MainContainer>
   );
