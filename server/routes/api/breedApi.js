@@ -97,22 +97,23 @@ router.route('/search/:searchQuery').get(async (req, res) => {
 
 router.route('/details/:breedId').get(async (req, res) => {
   try {
-    const breed = await BreedModel.findOne({ breedId: req.params.breedId });
+    const breedId = req.params.breedId;
+    const breed = await BreedModel.findOne({ breedId: breedId });
 
     if (breed) {
       breed.searches++;
-      breed.save();
+      await breed.save();
     }
 
-    const breedDataApi = await fetch(`https://api.thecatapi.com/v1/breeds/${req.params.breedId}`).then(res => res.json());
+    const breedDataApi = await fetch(`https://api.thecatapi.com/v1/breeds/${breedId}`).then(res => res.json());
     const resBreedData = breedDetailsProps(breedDataApi);
 
-    const referenceImageData = await fetch(`https://api.thecatapi.com/v1/images/${breedDataApi.reference_image_id}`).then(res => res.json());
-    resBreedData.referenceImage = referenceImageData.url;
+    resBreedData.referenceImage = breed.referenceImage;
 
     const imagesApiFetch = await fetch(`https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=${breedDataApi.id}`).then(res => res.json());
 
     resBreedData.images = imagesApiFetch.map(item => item.url);
+
     return res.status(200).json(resBreedData);
   } catch (error) {
 
